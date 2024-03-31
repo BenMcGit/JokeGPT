@@ -3,6 +3,7 @@
 import { useChat } from "ai/react";
 import ChatContainer from "./chat-container";
 import { SetStateAction, useState } from "react";
+import PostEditorPage from "./completion";
 
 const TYPES = [
   "Knock-knock",
@@ -31,10 +32,10 @@ const Dropdown = (props: {
   title: string, 
   setValue: (value: SetStateAction<string>) => void
 }) => {
-  const { options, value, title, setValue} = props;
-
+  const { options, value, title, setValue } = props;
   return (
-    <div className="form-control col-span-2">
+    <div 
+      className="form-control col-span-2">
       <label className="label">
         <span className="label-text">{title}</span>
       </label>
@@ -43,7 +44,7 @@ const Dropdown = (props: {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       >
-        {options.map(op => <option>{op}</option>)}
+        {options.map((op, index) => <option key={index}>{op}</option>)}
       </select>
     </div>
   )

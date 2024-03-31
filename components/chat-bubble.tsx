@@ -1,3 +1,5 @@
+import Rating from "./rating";
+
 export default function ChatBubble(props: {
   isUser: boolean;
   message: string;
@@ -7,8 +9,8 @@ export default function ChatBubble(props: {
 
   const location = isUser ? "chat chat-start" : "chat chat-end";
   const bubble = isUser
-    ? "chat-bubble bg-orange-400 text-white"
-    : "chat-bubble bg-slate-400 text-white";
+    ? "chat-bubble bg-orange-400 text-white flex flex-col"
+    : "chat-bubble bg-slate-400 text-white flex flex-col";
   return (
     <div className={location} key={key}>
       <div className="avatar chat-image">
@@ -19,7 +21,13 @@ export default function ChatBubble(props: {
           />
         </div>
       </div>
-      <div className={bubble}>{message}</div>
+      <div className={bubble}>
+        {message}
+        {!isUser ?
+          <Rating joke={message} /> :
+          <></>
+        }
+      </div>
     </div>
   );
 }
