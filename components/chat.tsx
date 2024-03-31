@@ -65,9 +65,8 @@ export default function Chat() {
   } = useChat();
 
   return (
-    <div className="p-16">
-      <div className="w-full h-64">
-        <form onSubmit={handleSubmit} className="bg-orange-400 rounded-xl shadow-md px-8 pt-6 pb-8 mb-4 grid grid-cols-4 gap-4">
+      <div className="w-full h-64 p-16">
+        <form onSubmit={handleSubmit} className="bg-orange-200 rounded-xl shadow-md px-8 pt-6 pb-8 mb-4 grid grid-cols-4 gap-4">
           <Dropdown options={TYPES} value={type} title={"Type"} setValue={setType} />
           <Dropdown options={TOPICS} value={topic} title={"Topic"} setValue={setTopic} />
           <Dropdown options={TONES} value={tone} title={"Tone"} setValue={setTone} />
@@ -76,7 +75,7 @@ export default function Chat() {
               <span className="label-text">Temperature</span>
             </label>
             <input
-            className="range range-xs col-span-4 "
+            className="range range-xs col-span-4 mt-4"
             type="range" 
             min={temperatureMin} 
             max={temperatureMax}
@@ -87,7 +86,10 @@ export default function Chat() {
             className="btn col-span-4 bg-blue-500 text-white"
             disabled={isLoading}
             onClick={() =>
-              append({ role: "user", content: `Generate a joke using the topic ${topic} and have a tone ${tone} while delivering it. Also consider the temperature value ${temperature}. This value can be a number between ${temperatureMin} and ${temperatureMax}. When the value is ${temperatureMin} the joke will be extremely random. When the value is ${temperatureMax} the joke will very clear.` })
+              append({ 
+                role: "user", 
+                content: `Please tell me a joke in the style of ${type}. Make sure the joke relates to the topic of ${topic}. When delivering the joke be sure to be ${tone}. On a scale of ${temperatureMin} to ${temperatureMax} please consider the value ${temperature}. This value represents how random your response can be. At ${temperatureMin}, you may completely disregaurd previous the previous context but at ${temperatureMax} you must abide to your current context verbatim. Please do not include this randomness value in the response.` 
+              })
             }>
               Generate Joke!
           </button>
@@ -100,6 +102,5 @@ export default function Chat() {
           }
         </form>
       </div>
-    </div>
   );
 }
