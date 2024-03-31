@@ -20,7 +20,7 @@ export default function ChatContainer(props: {
   }, [messages]);
 
   return (
-    <div className="w-full min-h-full bg-white h-64 rounded-xl overflow-auto" ref={messagesContainerRef}>
+    <div className="col-span-4 w-full min-h-full bg-white h-64 rounded-xl overflow-auto" ref={messagesContainerRef}>
       {messages.map((m, i) => (
         <ChatBubble
           isUser={m.role === "user"}
