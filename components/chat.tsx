@@ -37,7 +37,7 @@ export default function Chat() {
   return (
     <div className="flex flex-col p-32">
       <div className="w-full h-64">
-        <form onSubmit={handleSubmit} className="bg-red-300 rounded-xl shadow-md px-8 pt-6 pb-8 mb-4 grid grid-cols-4 gap-4">
+        <form onSubmit={handleSubmit} className="bg-orange-400 rounded-xl shadow-md px-8 pt-6 pb-8 mb-4 grid grid-cols-4 gap-4">
           <select
             className="select select-bordered col-span-2"
             value={topic}
@@ -53,14 +53,14 @@ export default function Chat() {
             {TONES.map(tone => <option>{tone}</option>)}
           </select>
           <input
-            className="range range-xs col-span-4"
+            className="range range-xs col-span-4 "
             type="range" 
             min={temperatureMin} 
             max={temperatureMax}
             value={temperature}
             onChange={(e) => setTemperature(e.target.value)}/>
           <button 
-            className="btn col-span-4"
+            className="btn col-span-4 bg-blue-500 text-white"
             onClick={() =>
               append({ role: "user", content: `Generate a joke using the topic ${topic} and have a tone ${tone} while delivering it. Also consider the temperature value ${temperature}. This value can be a number between ${temperatureMin} and ${temperatureMax}. When the value is ${temperatureMin} the joke will be extremely random. When the value is ${temperatureMax} the joke will very clear.` })
             }>
