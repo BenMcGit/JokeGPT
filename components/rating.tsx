@@ -9,8 +9,6 @@ type Evaluations = {
 
 const StarRating = (props: { title: string, rating: number}) => {
     const { title, rating } = props;
-
-    console.log(title, rating)
     return (
         <div className="form-control">
         <label className="label">
