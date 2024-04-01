@@ -1,6 +1,6 @@
-# ChefGPT
+# JokeGPT
 
-Your culinary creativity companion! 
+A certified and digital jokester! 
 
 ## Table of Contents
 
