@@ -17,11 +17,7 @@ const StarRating = (props: { title: string, rating: number}) => {
           <span className="label-text">{title}</span>
         </label>
         <div className="rating rating-md">
-            <input type="radio" name={`rating-${title}`} readOnly className="mask mask-star-2 bg-orange-400" checked={1 === rating} />
-            <input type="radio" name={`rating-${title}`} readOnly className="mask mask-star-2 bg-orange-400" checked={2 === rating} />
-            <input type="radio" name={`rating-${title}`} readOnly className="mask mask-star-2 bg-orange-400" checked={3 === rating} />
-            <input type="radio" name={`rating-${title}`} readOnly className="mask mask-star-2 bg-orange-400" checked={4 === rating} />
-            <input type="radio" name={`rating-${title}`} readOnly className="mask mask-star-2 bg-orange-400" checked={5 === rating} />
+            {[1,2,3,4,5].map(idx => <input type="radio" name={`rating-${title}`} readOnly className={`mask mask-star-2 ${rating >= idx ? 'bg-orange-800' : 'bg-slate-800'}`} />)}
         </div>
     </div>
     )
