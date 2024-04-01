@@ -11,8 +11,9 @@ export default function ChatBubble(props: {
   const bubble = isUser
     ? "chat-bubble bg-orange-400 text-white flex flex-col"
     : "chat-bubble bg-slate-400 text-white flex flex-col";
+  
   return (
-    <div className={location} key={key}>
+    <div className={location}>
       <div className="avatar chat-image">
         <div className="w-10 rounded-full">
           <img

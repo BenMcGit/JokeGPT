@@ -3,7 +3,6 @@
 import { useChat } from "ai/react";
 import ChatContainer from "./chat-container";
 import { SetStateAction, useState } from "react";
-import PostEditorPage from "./completion";
 
 const TYPES = [
   "Knock-knock",
